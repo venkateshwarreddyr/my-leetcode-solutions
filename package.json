@@ -1,14 +1,16 @@
 {
-  "name": "opsr",
+  "name": "leetcode-solutions-viewer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "package": "^1.0.1"
+    "next": "15.2.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   }
 }

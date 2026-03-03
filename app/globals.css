@@ -1,0 +1,153 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --text: #16181d;
+  --muted: #5a6472;
+  --accent: #0f6eeb;
+  --border: #dde2ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #eef4ff 0%, var(--bg) 40%);
+  color: var(--text);
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.toolbar {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 180px 120px;
+  gap: 0.75rem;
+}
+
+.toolbar input,
+.toolbar select,
+.toolbar button {
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0 0.8rem;
+  font-size: 0.95rem;
+}
+
+.toolbar button {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.summary {
+  margin: 1rem 0;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.02rem;
+  line-height: 1.4;
+}
+
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.87rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.pagination {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail h1 {
+  margin: 0.6rem 0 1rem;
+}
+
+.backLink {
+  font-size: 0.95rem;
+}
+
+.detailMeta {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.2rem 1rem;
+}
+
+.codeBlock {
+  margin-top: 1rem;
+  background: #101318;
+  color: #d4d9e2;
+  border-radius: 14px;
+  border: 1px solid #2f3848;
+  padding: 1rem;
+  overflow-x: auto;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+@media (max-width: 800px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .meta {
+    flex-direction: column;
+  }
+}
