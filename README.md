@@ -51,28 +51,6 @@ Open `http://localhost:3000`.
 
 Production: https://my-leetcode-solutions.vercel.app/
 
-## Deployment (Recommended)
-
-This app should be deployed through **Vercel Git Integration** (not via custom GitHub deploy scripts).
-
-1. In Vercel, click **Add New Project**.
-2. Import `venkateshwarreddyr/my-leetcode-solutions`.
-3. Framework: `Next.js` (auto-detected).
-4. Root Directory: repository root (`.`).
-5. Build Command: `npm run build` (default).
-6. Output: `.next` (default for Next.js).
-7. Production Branch: `main`.
-8. Click **Deploy**.
-
-After this setup:
-- Every push to `main` triggers a production deployment in Vercel.
-- Pull requests/other branches create preview deployments.
-
-## CI vs CD
-
-- GitHub Actions (`.github/workflows/ci-cd.yml`) is used for CI checks (`npm ci`, `npm run build`).
-- Vercel handles all deployments (CD) directly from Git events.
-
 ## Project Structure
 
 - `solutions/`: all problem solutions (source of truth)
