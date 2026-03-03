@@ -1,0 +1,24 @@
+// Problem: Gas Station
+// LeetCode: https://leetcode.com/problems/gas-station/
+// Language: javascript
+// Runtime: 1 ms
+// Memory: 66.1 MB
+// Submitted: 2025-08-24
+
+var canCompleteCircuit = function (gas, cost) {
+    let start = 0;
+    let totalGas = 0;
+    let currentGas = 0;
+
+    for (let i = 0; i < gas.length; i++) {
+        const fuelGain = gas[i] - cost[i];
+        totalGas += fuelGain;
+        currentGas += fuelGain;
+        if (currentGas < 0) {
+            currentGas = 0;
+            start = i + 1;
+        }
+    }
+
+    return totalGas < 0 ? -1 : start;
+};

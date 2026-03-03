@@ -1,0 +1,67 @@
+// Problem: Peak Index in a Mountain Array
+// LeetCode: https://leetcode.com/problems/peak-index-in-a-mountain-array/
+// Language: javascript
+// Runtime: 84 ms
+// Memory: 51.3 MB
+// Submitted: 2023-07-25
+
+// lo                mid                  hi
+// 1 2 34   56   77   88  99
+//               lo   mid hi
+//                    found               88
+//               lo/hi                    77
+//               lo/hi                    77
+//                        lo/hi           99
+// 1 2 34   56   77   88  99
+//                        lo/hi           100
+//                        hi   lo         100
+
+//   lo           mid           hi
+//   1    2  34   56   77   88  99
+//   lo      hi                             0
+//   lo/hi                                  0
+//hi lo                                     0
+//   lo      hi                             1
+//   lo/hi                                  1
+function bins_ori(a, tar, lo = 0, hi = a.length - 1) {
+    while (lo <= hi) {
+        let mid = Math.trunc(lo / 2 + hi / 2)
+        // if (mid === tar) {   // a is not there
+        if (a[mid] === tar) {  // a is there
+        // if (a[mid] === a[mid-1]) {  // tar is there
+            return mid //           found
+        // } else if (mid < tar) {
+        } else if (a[mid] < tar) {
+            lo = mid + 1 //         tar on right
+        } else {
+            hi = mid    //     mid-1    tar on left
+        }
+    }
+    return -1 //                    not found
+}
+// lo                mid                  hi
+// 1 2 34   56 56 56 56 56 56    77   88  99
+// function lower_bound_fe_or_fg(a, tar, lo = 0, hi = a.length - 1) {
+// function upper_bound_fg(a, tar, lo = 0, hi = a.length - 1) {
+
+ 
+//      /   \
+// 0 1   50   49    48    5 4 3 2 1
+// 0 1 30 40  50   60   100   1000    5 4 3 2 1
+function bins(a, tar, lo = 0, hi = a.length - 1) {
+    while (lo <= hi) {
+        let mid = Math.trunc(lo / 2 + hi / 2)
+        if ((a[mid - 1] < a[mid]) && (a[mid] > a[mid + 1])) {
+            return mid //           found
+        } else if (a[mid - 1] < a[mid]) {
+            lo = mid + 1   //         tar on right
+        } else {
+            hi = mid   //         tar on left
+        }
+    }
+    return -1 //                    not found
+}
+var peakIndexInMountainArray = function (a) {
+    return bins(a)
+};
+
